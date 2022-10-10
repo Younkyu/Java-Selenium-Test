@@ -1,0 +1,61 @@
+package co.younkyu.selenium.webdriver.basic;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class launchbrowser {
+	
+	public static WebDriver driver = null;
+	
+	public static String UWID = "dbsrbso";
+	public static String UWPWD = "Younsea7";
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		
+		// open the web app
+		driver.navigate().to("https://sdb.admin.uw.edu/students/uwnetid/register.asp");
+		driver.manage().window().maximize();
+		
+		// wait until web app has fully loaded
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// UW login
+		driver.findElement(By.id("weblogin_netid")).sendKeys(UWID);
+		driver.findElement(By.id("weblogin_password")).sendKeys(UWPWD);
+		driver.findElement(By.id("submit_button")).click();
+		
+		// wait until web app has fully loaded
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		driver.findElement(By.id("submit_button")).click();
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		driver.findElement(By.cssSelector("#regform > p:nth-child(6) > table > tbody > tr:nth-child(2) > td:nth-child(2) > input[type=TEXT]")).sendKeys("00000");
+		
+	}
+
+}

@@ -1,0 +1,46 @@
+package co.younkyu.selenium.webdriver.basic;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class launchbrowser {
+	
+	public static WebDriver driver = null;
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		
+		// open the web app
+		driver.navigate().to("https://www.amazon.com");
+		driver.manage().window().maximize();
+		String title = driver.getTitle();
+		
+		if (title.equalsIgnoreCase("Amazon.com")) {
+			System.out.println("Title matches!");
+		} else {
+			System.out.println("Title does not match!");
+		}
+		
+		// locate the search bar
+		WebElement searchBar = driver.findElement(By.id("twotabsearchtextbox"));
+		searchBar.sendKeys("Sony Headphones");
+		
+		driver.findElement(By.id("nav-search-submit-button")).click();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

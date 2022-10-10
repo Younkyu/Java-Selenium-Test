@@ -1,0 +1,13 @@
+package co.younkyu.selenium.webdriver.basic;
+
+import java.util.concurrent.TimeUnit;
+
+public class launchbrowser {
+	
+	public static WebDriver driver = null;
+
+	public static void main(String[] args) {
+		
+	}
+
+}

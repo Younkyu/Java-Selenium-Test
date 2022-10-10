@@ -1,0 +1,5 @@
+package co.younkyu.selenium.webdriver.basic;
+
+public class CheckStore {
+
+}

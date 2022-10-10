@@ -1,0 +1,9 @@
+package selenium_java;
+
+public class launchbrowser {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

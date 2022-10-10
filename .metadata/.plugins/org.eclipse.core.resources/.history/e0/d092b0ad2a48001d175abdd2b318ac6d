@@ -1,0 +1,78 @@
+package co.younkyu.selenium.webdriver.basic;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LaunchBrowser {
+	
+	public static WebDriver driver = null;
+	
+	public static String UWID = "dbsrbso";
+	public static String UWPWD = "Younsea7";
+	public static List<String> classes = new ArrayList<>();
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		
+		// sample classes
+		classes.add("00000");
+		classes.add("00001");
+		classes.add("00002");
+		classes.add("00003");
+		
+		register();
+		
+//		// open window
+//		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+//		driver = new ChromeDriver();
+//		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+//		
+//		// open the web app
+//		driver.navigate().to("https://sdb.admin.uw.edu/students/uwnetid/register.asp");
+//		driver.manage().window().maximize();
+//		
+//		// wait until web app has fully loaded
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		// UW login
+//		driver.findElement(By.id("weblogin_netid")).sendKeys(UWID);
+//		driver.findElement(By.id("weblogin_password")).sendKeys(UWPWD);
+//		driver.findElement(By.id("submit_button")).click();
+//		
+//		// wait until web app has fully loaded
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		// continue past the 2FA page
+//		driver.findElement(By.id("submit_button")).click();
+//		
+//		// wait until next page has fully loaded
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		// loop through all the classes to enter and submit
+////		for (int n = 0; n < classes.size(); n++) {
+////			driver.findElement(By.cssSelector("#regform > p:nth-child(6) > table > tbody > tr:nth-child(2) > td:nth-child(2) > input[type=TEXT]")).sendKeys("00000");
+////		}
+		
+	}
+
+}

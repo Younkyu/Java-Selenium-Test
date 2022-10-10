@@ -1,0 +1,41 @@
+package co.younkyu.selenium.webdriver.basic;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class launchbrowser {
+	
+	public static WebDriver driver = null;
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		
+		// open the web app
+		driver.navigate().to("https://www.amazon.com");
+		driver.manage().window().maximize();
+		
+		// locate the search bar
+		WebElement searchBar = driver.findElement(By.id("twotabsearchtextbox"));
+		searchBar.sendKeys("Sony Headphones");
+		
+		driver.findElement(By.id("nav-search-submit-button")).click();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		WebElement item = driver.findElement(By.cssSelector("#search > div.s-desktop-width-max.s-desktop-content.s-opposite-dir.sg-row > div.s-matching-dir.sg-col-16-of-20.sg-col.sg-col-8-of-12.sg-col-12-of-16 > div > span:nth-child(4) > div.s-main-slot.s-result-list.s-search-results.sg-row > div:nth-child(5) > div > div > div > div > div > div.sg-col.sg-col-4-of-12.sg-col-8-of-16.sg-col-12-of-20.s-list-col-right > div > div > div.a-section.a-spacing-none.puis-padding-right-small.s-title-instructions-style > h2 > a"));
+		System.out.println(item.getAttribute("href"));
+		
+	}
+
+}
