@@ -12,8 +12,8 @@ public class LaunchBrowser extends Thread {
 	
 	public static WebDriver driver = null;
 	
-	public static String UWID = "dbsrbso";
-	public static String UWPWD = "Younsea7";
+	public static String UWID = "";
+	public static String UWPWD = "";
 	public static List<String> classes = new ArrayList<>();
 
 	public static void main(String[] args) {
